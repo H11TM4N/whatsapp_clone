@@ -36,6 +36,7 @@ class MobileScreen extends StatelessWidget {
             indicatorSize: TabBarIndicatorSize.tab,
             indicatorColor: tabColor,
             labelColor: tabColor,
+            unselectedLabelColor: Colors.grey,
             labelStyle: TextStyle(fontWeight: FontWeight.bold),
             tabs: [
               Tab(text: 'Chats'),
