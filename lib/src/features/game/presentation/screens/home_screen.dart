@@ -17,6 +17,7 @@ class HomeScreen extends StatelessWidget {
               'Home Screen',
               color: Colors.white,
             ),
+            SvgAsset(path: iconLizard),
           ],
         ),
       ),

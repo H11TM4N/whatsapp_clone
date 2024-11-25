@@ -2,13 +2,18 @@ const String baseSvgPath = 'assets/svgs/';
 const String basePngPath = 'assets/pngs/';
 
 
-final String xAndO = 'x-and-o'.svg;
-final String oOutlined = 'o-outlined'.svg;
-final String oFilled = 'o-filled'.svg;
-final String xOutlined = 'x-outlined'.svg;
-final String xFilled = 'x-filled'.svg;
-final String restartIcon = 'restartIcon'.svg;
-
+final String bgPentagon = 'bg-pentagon'.svg;
+final String bgTriangle = 'bg-triangle'.svg;
+final String iconClose = 'icon-close'.svg;
+final String iconLizard = 'icon-lizard'.svg;
+final String iconPaper = 'icon-paper'.svg;
+final String iconRock = 'icon-rock'.svg;
+final String iconScissors = 'icon-scissors'.svg;
+final String iconSpock = 'icon-spock'.svg;
+final String imageRules = 'image-rules'.svg;
+final String imageRulesBonus = 'image-rules-bonus'.svg;
+final String logo = 'logo'.svg;
+final String logoBonus = 'logo-bonus'.svg;
 
 // extensions
 extension ImageExtension on String {
