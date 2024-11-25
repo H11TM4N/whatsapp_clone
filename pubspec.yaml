@@ -1,0 +1,73 @@
+name: rock_paper_scissors
+description: "A new Flutter project."
+
+publish_to: "none"
+
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.5.4
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  cupertino_icons: ^1.0.6
+  flutter_hooks: ^0.20.5
+  flutter_svg: ^2.0.10+1
+  flutter_bloc: ^8.1.6
+  equatable: ^2.0.7
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  flutter_lints: ^5.0.0
+  flutter_launcher_icons: ^0.14.1
+
+flutter_launcher_icons:
+  android: "launcher_icon"
+  ios: true
+  image_path_android: "assets/pngs/app-icon.png"
+  image_path_ios: "assets/pngs/app-icon.jpg"
+  min_sdk_android: 21
+  remove_alpha_ios: true
+  web:
+    generate: true
+    image_path: "assets/pngs/app-icon.png"
+  windows:
+    generate: true
+    image_path: "assets/pngs/app-icon.png"
+    icon_size: 48 # min:48, max:256, default: 48
+  macos:
+    generate: true
+    image_path: "assets/pngs/app-icon.png"
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    - assets/pngs/
+    - assets/svgs/
+
+  fonts:
+    - family: Barlow Semi Condensed
+      fonts:
+        - asset: assets/font/BarlowSemiCondensed-Black.ttf
+        - asset: assets/font/BarlowSemiCondensed-BlackItalic.ttf
+        - asset: assets/font/BarlowSemiCondensed-Bold.ttf
+        - asset: assets/font/BarlowSemiCondensed-BoldItalic.ttf
+        - asset: assets/font/BarlowSemiCondensed-ExtraBold.ttf
+        - asset: assets/font/BarlowSemiCondensed-ExtraBoldItalic.ttf
+        - asset: assets/font/BarlowSemiCondensed-ExtraLight.ttf
+        - asset: assets/font/BarlowSemiCondensed-ExtraLightItalic.ttf
+        - asset: assets/font/BarlowSemiCondensed-Italic.ttf
+        - asset: assets/font/BarlowSemiCondensed-Light.ttf
+        - asset: assets/font/BarlowSemiCondensed-LightItalic.ttf
+        - asset: assets/font/BarlowSemiCondensed-Medium.ttf
+        - asset: assets/font/BarlowSemiCondensed-MediumItalic.ttf
+        - asset: assets/font/BarlowSemiCondensed-Regular.ttf
+        - asset: assets/font/BarlowSemiCondensed-SemiBold.ttf
+        - asset: assets/font/BarlowSemiCondensed-SemiBoldItalic.ttf
+        - asset: assets/font/BarlowSemiCondensed-Thin.ttf
+        - asset: assets/font/BarlowSemiCondensed-ThinItalic.ttf
