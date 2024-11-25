@@ -6,14 +6,13 @@ publish_to: "none"
 version: 1.0.0+1
 
 environment:
-  sdk: ">=3.4.3 <4.0.0"
+  sdk: ^3.5.4
 
 dependencies:
   flutter:
     sdk: flutter
 
   cupertino_icons: ^1.0.6
-  get: ^4.6.6
   flutter_hooks: ^0.20.5
   flutter_svg: ^2.0.10+1
   flutter_bloc: ^8.1.6
@@ -52,24 +51,23 @@ flutter:
     - assets/svgs/
 
   fonts:
-    - family: Barlow
+    - family: Barlow Semi Condensed
       fonts:
-        - asset: assets/font/Barlow-Black.ttf
-        - asset: assets/font/Barlow-BlackItalic.ttf
-        - asset: assets/font/Barlow-Bold.ttf
-        - asset: assets/font/Barlow-BoldItalic.ttf
-        - asset: assets/font/Barlow-ExtraBold.ttf
-        - asset: assets/font/Barlow-ExtraBoldItalic.ttf
-        - asset: assets/font/Barlow-ExtraLight.ttf
-        - asset: assets/font/Barlow-ExtraLightItalic.ttf
-        - asset: assets/font/Barlow-Italic.ttf
-        - asset: assets/font/Barlow-Light.ttf
-        - asset: assets/font/Barlow-LightItalic.ttf
-        - asset: assets/font/Barlow-Medium.ttf
-        - asset: assets/font/Barlow-MediumItalic.ttf
-        - asset: assets/font/Barlow-Regular.ttf
-        - asset: assets/font/Barlow-SemiBold.ttf
-        - asset: assets/font/Barlow-SemiBoldItalic.ttf
-        - asset: assets/font/Barlow-Thin.ttf
-        - asset: assets/font/Barlow-ThinItalic.ttf
-
+        - asset: assets/font/BarlowSemiCondensed-Black.ttf
+        - asset: assets/font/BarlowSemiCondensed-BlackItalic.ttf
+        - asset: assets/font/BarlowSemiCondensed-Bold.ttf
+        - asset: assets/font/BarlowSemiCondensed-BoldItalic.ttf
+        - asset: assets/font/BarlowSemiCondensed-ExtraBold.ttf
+        - asset: assets/font/BarlowSemiCondensed-ExtraBoldItalic.ttf
+        - asset: assets/font/BarlowSemiCondensed-ExtraLight.ttf
+        - asset: assets/font/BarlowSemiCondensed-ExtraLightItalic.ttf
+        - asset: assets/font/BarlowSemiCondensed-Italic.ttf
+        - asset: assets/font/BarlowSemiCondensed-Light.ttf
+        - asset: assets/font/BarlowSemiCondensed-LightItalic.ttf
+        - asset: assets/font/BarlowSemiCondensed-Medium.ttf
+        - asset: assets/font/BarlowSemiCondensed-MediumItalic.ttf
+        - asset: assets/font/BarlowSemiCondensed-Regular.ttf
+        - asset: assets/font/BarlowSemiCondensed-SemiBold.ttf
+        - asset: assets/font/BarlowSemiCondensed-SemiBoldItalic.ttf
+        - asset: assets/font/BarlowSemiCondensed-Thin.ttf
+        - asset: assets/font/BarlowSemiCondensed-ThinItalic.ttf

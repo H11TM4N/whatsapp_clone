@@ -9,10 +9,12 @@ class SplashScreen extends HookWidget {
 
   @override
   Widget build(BuildContext context) {
+    final navigator = AppNavigator(context);
+
     useEffect(() {
       Future.delayed(
         const Duration(milliseconds: 500),
-        () => AppNavigator.replaceAllNamed(HomeRoutes.home),
+        () => navigator.replaceAllNamed(AppRoutes.home),
       );
       return null;
     }, const []);

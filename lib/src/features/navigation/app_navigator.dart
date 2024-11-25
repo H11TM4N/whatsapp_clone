@@ -1,46 +1,40 @@
-import 'package:get/get.dart';
+import 'package:flutter/material.dart';
 
 class AppNavigator {
-  //? use to push to a new route
-  static void pushNamed(String name, {Object? args}) {
-    if (Get.isDialogOpen!) {
-      Get.back();
-    }
-    if (Get.isBottomSheetOpen!) {
-      Get.back();
-    }
-    Get.toNamed(name, arguments: args);
+  final BuildContext context;
+
+  AppNavigator(this.context);
+
+  //? Use to push to a new route
+  void pushNamed(String name, {Object? args}) {
+    Navigator.of(context).pushNamed(name, arguments: args);
   }
 
   //? Use to replace the current route with a new route
-  static void replaceNamed(String name, {Object? args}) {
-    if (Get.isDialogOpen!) {
-      Get.back();
-    }
-    Get.offNamed(name, arguments: args);
+  void replaceNamed(String name, {Object? args}) {
+    Navigator.of(context).pushReplacementNamed(name, arguments: args);
   }
 
-  //? Use to replace the current route with a new route
-  static void replaceAllNamed(String name, {Object? args}) {
-    if (Get.isDialogOpen!) {
-      Get.back();
-    }
-    Get.offAllNamed(name, arguments: args);
+  //? Use to replace all routes with a new route
+  void replaceAllNamed(String name, {Object? args}) {
+    Navigator.of(context).pushNamedAndRemoveUntil(
+      name,
+      (route) => false,
+      arguments: args,
+    );
   }
 
   //? Use to pop the current route
-  static void popRoute() {
-    popDialog();
-    Get.back();
+  void popRoute() {
+    if (Navigator.of(context).canPop()) {
+      Navigator.of(context).pop();
+    }
   }
 
   //? Use to pop dialog if shown
-  static void popDialog() {
-    if (Get.isDialogOpen!) {
-      Get.back();
-    }
-    if (Get.isBottomSheetOpen!) {
-      Get.back();
+  void popDialog() {
+    if (Navigator.of(context).canPop()) {
+      Navigator.of(context).pop();
     }
   }
 }

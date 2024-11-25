@@ -1,24 +1,27 @@
-import 'package:rock_paper_scissors/src/features/theme/theme.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
+import 'package:rock_paper_scissors/src/features/theme/theme.dart';
 
 class AppDialog {
   static void dialog(
+    BuildContext context,
     Widget content, {
     Color? bgColor,
-    bool dismissable = true,
+    bool dismissible = true,
   }) {
-    Get.dialog(
-      Dialog(
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.zero,
-        ),
-        insetPadding: EdgeInsets.zero,
-        backgroundColor: bgColor ?? appColors.backgroundGradient.colors[0],
-        shadowColor: bgColor ?? appColors.backgroundGradient.colors[0],
-        child: content,
-      ),
-      barrierDismissible: dismissable,
+    showDialog(
+      context: context,
+      barrierDismissible: dismissible,
+      builder: (BuildContext dialogContext) {
+        return Dialog(
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(8),
+          ),
+          insetPadding: EdgeInsets.symmetric(horizontal: 15),
+          backgroundColor: bgColor ?? appColors.white,
+          shadowColor: bgColor ?? appColors.white,
+          child: content,
+        );
+      },
     );
   }
 }

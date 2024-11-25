@@ -1,19 +1,24 @@
+import 'package:rock_paper_scissors/src/features/splash/splash_screen.dart';
 import 'package:rock_paper_scissors/src/shared/shared.dart';
-import 'features/navigation/nav.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get_navigation/src/root/get_material_app.dart';
+
+import 'features/game/presentation/screens/screens.dart';
+import 'features/navigation/nav.dart';
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return GetMaterialApp(
+    return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Rock Paper Scissors',
       theme: appTheme,
-      initialRoute: AppPages.initial,
-      getPages: AppPages.routes,
+      routes: {
+        AppRoutes.splash: (context) => SplashScreen(),
+        AppRoutes.home: (context) => HomeScreen(),
+      },
+      initialRoute: AppRoutes.splash,
     );
   }
 }

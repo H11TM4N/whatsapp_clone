@@ -1,1 +1,1 @@
-const BARLOW = 'Barlow';
+const BARLOW_SEMI_CONDENSED = 'Barlow Semi Condensed';

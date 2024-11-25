@@ -13,7 +13,7 @@ ThemeData appTheme = ThemeData(
       fontSize: 18,
     ),
   ).apply(
-    fontFamily: BARLOW,
+    fontFamily: BARLOW_SEMI_CONDENSED,
   ),
   useMaterial3: true,
 );
