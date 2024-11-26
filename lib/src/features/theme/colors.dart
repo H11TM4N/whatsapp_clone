@@ -33,8 +33,16 @@ class AppColors {
     ],
   );
 
+  final Gradient scoreBoardGradient = LinearGradient(
+    colors: [
+     Color(0xFFF3F3F3),
+     Color(0xFFFFFFFF),
+    ],
+  );
+
   //* Neutral Colors
   final Color white = Color(0xFFFFFFFF);
+  final Color shadow = Color(0xFFBABFD4);
   final Color darkText = HSLColor.fromAHSL(1.0, 229, 0.25, 0.31).toColor();
   final Color scoreText = HSLColor.fromAHSL(1.0, 229, 0.64, 0.46).toColor();
   final Color headerOutline = HSLColor.fromAHSL(1.0, 217, 0.16, 0.45).toColor();

@@ -49,7 +49,7 @@ class AppText extends StatelessWidget {
         letterSpacing: letterSpacing,
         wordSpacing: wordSpacing,
         textBaseline: textBaseline,
-        height: height,
+        height: height ?? 1,
       ),
       overflow: overflow,
       semanticsLabel: semanticsLabel,

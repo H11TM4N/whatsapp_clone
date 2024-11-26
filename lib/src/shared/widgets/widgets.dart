@@ -5,3 +5,4 @@ export 'app_text.dart';
 export 'sizedbox.dart';
 export 'svg_asset.dart';
 export 'responsive_layout.dart';
+export 'bounce_in_animation.dart';

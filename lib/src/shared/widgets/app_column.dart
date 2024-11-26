@@ -23,7 +23,7 @@ class AppColumn extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Widget content = Container(
-      constraints: BoxConstraints(maxWidth: 450),
+      constraints: BoxConstraints(maxWidth: 700),
       child: SafeArea(
         child: Padding(
           padding: padding ?? EdgeInsets.symmetric(horizontal: 15),
