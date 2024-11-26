@@ -34,4 +34,7 @@ class GameState extends Equatable {
       result: result ?? this.result,
     );
   }
+
+  @override
+  bool get stringify => true;
 }

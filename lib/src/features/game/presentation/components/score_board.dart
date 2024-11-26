@@ -62,7 +62,7 @@ class ScoreBoard extends StatelessWidget {
                             color: appColors.scoreText,
                           ),
                           AppText(
-                            '$score',
+                            score > 99 ? '99+' : '$score',
                             fontSize: 64,
                             letterSpacing: -8,
                             fontWeight: FontWeight.w700,

@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:rock_paper_scissors/src/features/game/data/data.dart';
+import 'package:rock_paper_scissors/src/features/game/logic/blocs/blocs.dart';
 import 'package:rock_paper_scissors/src/shared/shared.dart';
 
 class GameResult extends StatelessWidget {
@@ -8,56 +11,58 @@ class GameResult extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final yourPick = spockTile;
-    final housePick = lizardTile;
-    bool yourWin = false;
-
     final isMobile = DeviceType(context).isMobile;
 
-    return FittedBox(
-      fit: isMobile ? BoxFit.none : BoxFit.contain,
-      child: Container(
-        constraints: BoxConstraints(
-          maxWidth: 800,
-          // maxHeight: 600,
-        ),
-        margin: EdgeInsets.only(top: /*!isMobile ? 50 :*/ 50),
-        child: Column(
-          children: [
-            Row(
-              mainAxisAlignment: isMobile
-                  ? MainAxisAlignment.center
-                  : MainAxisAlignment.spaceBetween,
+    void playAgain() => context.read<GameBloc>().add(PlayAgainEvent());
+
+    return BlocBuilder<GameBloc, GameState>(
+      builder: (context, state) {
+        return FittedBox(
+          fit: isMobile ? BoxFit.none : BoxFit.contain,
+          child: Container(
+            constraints: BoxConstraints(
+              maxWidth: 800,
+              // maxHeight: 600,
+            ),
+            margin: EdgeInsets.only(top: /*!isMobile ? 50 :*/ 50),
+            child: Column(
               children: [
-                _buildPick(
-                  title: 'YOU PICKED',
-                  pick: yourPick,
-                  isMobile: isMobile,
+                Row(
+                  mainAxisAlignment: isMobile
+                      ? MainAxisAlignment.center
+                      : MainAxisAlignment.spaceBetween,
+                  children: [
+                    _buildPick(
+                      title: 'YOU PICKED',
+                      pick: state.yourPick,
+                      isMobile: isMobile,
+                    ),
+                    if (!isMobile)
+                      _buildWinOrLoss(
+                        result: state.result,
+                        onPlayAgain: playAgain,
+                      )
+                    else
+                      XBox(50),
+                    _buildPick(
+                      title: 'THE HOUSE PICKED',
+                      pick: state.housePick,
+                      isMobile: isMobile,
+                    ),
+                  ],
                 ),
-                if (!isMobile)
+                if (isMobile) ...[
+                  YBox(40),
                   _buildWinOrLoss(
-                    yourWin: yourWin,
-                    onTap: () {},
-                  )
-                else
-                  XBox(50),
-                _buildPick(
-                  title: 'THE HOUSE PICKED',
-                  pick: housePick,
-                  isMobile: isMobile,
-                ),
+                    result: state.result,
+                    onPlayAgain: playAgain,
+                  ),
+                ]
               ],
             ),
-            if (isMobile) ...[
-              YBox(40),
-              _buildWinOrLoss(
-                yourWin: yourWin,
-                onTap: () {},
-              ),
-            ]
-          ],
-        ),
-      ),
+          ),
+        );
+      },
     );
   }
 
@@ -96,19 +101,25 @@ class GameResult extends StatelessWidget {
   }
 
   Widget _buildWinOrLoss({
-    required bool yourWin,
-    required VoidCallback onTap,
+    required GameRes result,
+    required VoidCallback onPlayAgain,
   }) {
     return Column(
       children: [
         AppText(
-          yourWin ? 'YOU WIN' : 'YOU LOSE',
+          result == GameRes.win
+              ? 'YOU WIN'
+              : result == GameRes.lose
+                  ? 'YOU LOSE'
+                  : result == GameRes.draw
+                      ? 'DRAW'
+                      : '',
           fontSize: 42,
           fontWeight: FontWeight.w700,
           color: appColors.white,
         ),
         YBox(20),
-        PlayAgainButton(onTap: onTap),
+        PlayAgainButton(onTap: onPlayAgain),
       ],
     );
   }
