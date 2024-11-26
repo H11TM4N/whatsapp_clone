@@ -63,7 +63,7 @@ class PlayAgainButton extends HookWidget {
           height: 48,
           alignment: Alignment.center,
           decoration: BoxDecoration(
-            gradient: isHovering.value ? appColors.scoreBoardGradient : null,
+            gradient: appColors.scoreBoardGradient,
             borderRadius: BorderRadius.circular(8),
           ),
           child: AppText(

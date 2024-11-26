@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:rock_paper_scissors/src/features/game/presentation/components/components.dart';
 import 'package:rock_paper_scissors/src/shared/shared.dart';
 
+import 'game_result.dart';
 import 'select_option.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -24,7 +25,7 @@ class HomeScreen extends StatelessWidget {
               isBonus: false,
             ),
             YBox(20),
-            SelectOptionState(),
+            GameResult(),
           ],
         ),
       ),

@@ -23,27 +23,27 @@ class AppColumn extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Widget content = Container(
-      constraints: BoxConstraints(maxWidth: 700),
+      constraints: BoxConstraints(maxWidth: 800),
       child: SafeArea(
         child: Padding(
           padding: padding ?? EdgeInsets.symmetric(horizontal: 15),
-          child: 
-          // shouldScroll
-          //     ? SingleChildScrollView(
-          //         child: Column(
-          //           mainAxisSize: mainAxisSize,
-          //           mainAxisAlignment: mainAxisAlignment,
-          //           crossAxisAlignment: crossAxisAlignment,
-          //           children: children,
-          //         ),
-          //       )
-          //     :
-               Column(
-                  mainAxisSize: mainAxisSize,
-                  mainAxisAlignment: mainAxisAlignment,
-                  crossAxisAlignment: crossAxisAlignment,
-                  children: children,
-                ),
+          child:
+              // shouldScroll
+              //     ? SingleChildScrollView(
+              //         child: Column(
+              //           mainAxisSize: mainAxisSize,
+              //           mainAxisAlignment: mainAxisAlignment,
+              //           crossAxisAlignment: crossAxisAlignment,
+              //           children: children,
+              //         ),
+              //       )
+              //     :
+              Column(
+            mainAxisSize: mainAxisSize,
+            mainAxisAlignment: mainAxisAlignment,
+            crossAxisAlignment: crossAxisAlignment,
+            children: children,
+          ),
         ),
       ),
     );

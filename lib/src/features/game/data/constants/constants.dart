@@ -1,15 +1,19 @@
-import 'package:rock_paper_scissors/src/shared/shared.dart';
+const ROCK = 'rock';
+const PAPER = 'paper';
+const SCISSORS = 'scissors';
+const LIZARD = 'lizard';
+const SPOCK = 'spock';
 
-final GAME_OPTIONS = [
-  rockTile,
-  paperTile,
-  scissorsTile,
+const GAME_OPTIONS = [
+ ROCK,
+ PAPER,
+ SCISSORS,
 ];
 
-final BONUS_GAME_OPTIONS = [
-  rockTile,
-  paperTile,
-  scissorsTile,
-  lizardTile,
-  spockTile,
+const BONUS_GAME_OPTIONS = [
+ROCK,
+ PAPER,
+ SCISSORS,
+ LIZARD,
+ SPOCK,
 ];
