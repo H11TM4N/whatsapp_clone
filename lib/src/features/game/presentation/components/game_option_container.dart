@@ -38,8 +38,8 @@ class GameOptionContainer extends HookWidget {
               onExit: (_) => isHovering.value = false,
               child: SvgAsset(
                 path: icon,
-                height: size,
-                width: size,
+                // height: size,
+                // width: size,
               ),
             ),
           );
