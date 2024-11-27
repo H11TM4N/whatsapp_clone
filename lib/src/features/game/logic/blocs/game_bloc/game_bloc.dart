@@ -9,10 +9,18 @@ import 'game_state.dart';
 class GameBloc extends Bloc<GameEvent, GameState> {
   final GameService service;
   GameBloc({required this.service}) : super(GameState()) {
+    on<SetGameType>(_onSetGameType);
     on<SwitchGameType>(_onSwitchGameType);
     on<YourPickEvent>(_onPick);
     on<DetermineGameResultEvent>(_onDetermineGameResult);
     on<PlayAgainEvent>(_onPlayAgain);
+  }
+
+  void _onSetGameType(SetGameType event, Emitter<GameState> emit) async {
+    emit(state.copyWith(
+      isBonusGame: event.isBonus,
+    ));
+    log(state.toString());
   }
 
   void _onSwitchGameType(SwitchGameType event, Emitter<GameState> emit) async {

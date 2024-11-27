@@ -7,6 +7,15 @@ abstract class GameEvent extends Equatable {
   List<Object> get props => [];
 }
 
+class SetGameType extends GameEvent {
+  final bool isBonus;
+  const SetGameType({
+    required this.isBonus,
+  });
+  @override
+  List<Object> get props => [isBonus];
+}
+
 class SwitchGameType extends GameEvent {}
 
 class YourPickEvent extends GameEvent {
