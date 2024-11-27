@@ -7,6 +7,8 @@ abstract class GameEvent extends Equatable {
   List<Object> get props => [];
 }
 
+class SwitchGameType extends GameEvent {}
+
 class YourPickEvent extends GameEvent {
   final String yourPick;
   const YourPickEvent({

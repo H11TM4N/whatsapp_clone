@@ -9,40 +9,66 @@ import 'game_state.dart';
 class GameBloc extends Bloc<GameEvent, GameState> {
   final GameService service;
   GameBloc({required this.service}) : super(GameState()) {
-    on<YourPickEvent>((event, emit) {
-      emit(
-        state.copyWith(
-          yourPick: nameToPath(event.yourPick),
-          housePick: nameToPath(selectRandomString(GAME_OPTIONS)),
-          playedRound: true,
-        ),
-      );
-      add(DetermineGameResultEvent());
-      log(state.toString());
-    });
+    on<SwitchGameType>(_onSwitchGameType);
+    on<YourPickEvent>(_onPick);
+    on<DetermineGameResultEvent>(_onDetermineGameResult);
+    on<PlayAgainEvent>(_onPlayAgain);
+  }
 
-    on<DetermineGameResultEvent>((event, emit) {
-      emit(
-        state.copyWith(
-          result: service.determineGameResult(
-            yourPick: pathToName(state.yourPick) ?? '__',
-            housePick: pathToName(state.housePick) ?? '__',
+  void _onSwitchGameType(SwitchGameType event, Emitter<GameState> emit) async {
+    emit(state.copyWith(
+      isBonusGame: !state.isBonusGame,
+    ));
+    log(state.toString());
+  }
+
+  void _onPick(YourPickEvent event, Emitter<GameState> emit) async {
+    emit(
+      state.copyWith(
+        yourPick: nameToPath(event.yourPick),
+        housePick: nameToPath(
+          selectRandomString(
+            state.isBonusGame ? BONUS_GAME_OPTIONS : GAME_OPTIONS,
           ),
-          score: state.result == GameRes.win ? (state.score + 1) : null,
         ),
-      );
-      log(state.toString());
-    });
+        playedRound: true,
+      ),
+    );
+    add(DetermineGameResultEvent());
+    log(state.toString());
+  }
 
-    on<PlayAgainEvent>((event, emit) {
-      emit(
-        state.copyWith(
-          playedRound: false,
-          housePick: '',
-          yourPick: '',
-        ),
-      );
-      log(state.toString());
-    });
+  void _onDetermineGameResult(
+      DetermineGameResultEvent event, Emitter<GameState> emit) async {
+    emit(
+      state.copyWith(
+        result: state.isBonusGame
+            ? service.determineBonusGameResult(
+                yourPick: pathToName(state.yourPick) ?? '__',
+                housePick: pathToName(state.housePick) ?? '__',
+              )
+            : service.determineGameResult(
+                yourPick: pathToName(state.yourPick) ?? '__',
+                housePick: pathToName(state.housePick) ?? '__',
+              ),
+      ),
+    );
+    emit(
+      state.copyWith(
+        score: state.result == GameRes.win ? (state.score + 1) : null,
+      ),
+    );
+    log(state.toString());
+  }
+
+  void _onPlayAgain(PlayAgainEvent event, Emitter<GameState> emit) async {
+    emit(
+      state.copyWith(
+        playedRound: false,
+        housePick: '',
+        yourPick: '',
+      ),
+    );
+    log(state.toString());
   }
 }

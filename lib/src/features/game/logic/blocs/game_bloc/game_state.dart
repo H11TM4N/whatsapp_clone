@@ -7,6 +7,7 @@ class GameState extends Equatable {
   final String housePick;
   final bool playedRound;
   final GameRes result;
+  final bool isBonusGame;
 
   const GameState({
     this.score = 0,
@@ -14,10 +15,11 @@ class GameState extends Equatable {
     this.housePick = '',
     this.playedRound = false,
     this.result = GameRes.def,
+    this.isBonusGame = false,
   });
 
   @override
-  List<Object> get props => [score, yourPick, housePick, playedRound, result];
+  List<Object> get props => [score, yourPick, housePick, playedRound, isBonusGame, result];
 
   GameState copyWith({
     int? score,
@@ -25,6 +27,7 @@ class GameState extends Equatable {
     String? housePick,
     bool? playedRound,
     GameRes? result,
+    bool? isBonusGame,
   }) {
     return GameState(
       score: score ?? this.score,
@@ -32,6 +35,7 @@ class GameState extends Equatable {
       housePick: housePick ?? this.housePick,
       playedRound: playedRound ?? this.playedRound,
       result: result ?? this.result,
+      isBonusGame: isBonusGame ?? this.isBonusGame,
     );
   }
 
