@@ -23,12 +23,9 @@ jobs:
 
       - name: Clear Flutter cache
         run: flutter clean
-        working-directory: client
 
       - name: Install dependencies
         run: flutter pub get
-        working-directory: client
 
       - name: Run tests
         run: flutter test
-        working-directory: client
