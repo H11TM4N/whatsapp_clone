@@ -19,6 +19,15 @@ void main() {
 
   group('GameBloc', () {
     blocTest<GameBloc, GameState>(
+      'emits updated isBonusGame when SetGameType is added',
+      build: () => gameBloc,
+      act: (bloc) => bloc.add(SetGameType(isBonus: false)),
+      expect: () => [
+        GameState(isBonusGame: false),
+      ],
+    );
+
+    blocTest<GameBloc, GameState>(
       'emits updated isBonusGame when SwitchGameType is added',
       build: () => gameBloc,
       act: (bloc) => bloc.add(SwitchGameType()),

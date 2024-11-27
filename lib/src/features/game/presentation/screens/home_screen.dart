@@ -37,7 +37,7 @@ class HomeScreen extends StatelessWidget {
               if (!DeviceType(context).isMobile) {
                 AppDialog.dialog(
                   context,
-                  GameRules(isDialog: true, isBonus: false),
+                  GameRules(isDialog: true, isBonus: state.isBonusGame),
                 );
               } else {
                 showModalBottomSheet(
@@ -46,7 +46,7 @@ class HomeScreen extends StatelessWidget {
                   shape: Border(),
                   builder: (context) => GameRules(
                     isDialog: false,
-                    isBonus: false,
+                    isBonus: state.isBonusGame,
                   ),
                 );
               }

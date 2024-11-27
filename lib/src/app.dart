@@ -1,10 +1,9 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:rock_paper_scissors/src/features/game/logic/blocs/game_bloc/game_bloc.dart';
+import 'package:rock_paper_scissors/src/features/game/logic/blocs/blocs.dart';
 import 'package:rock_paper_scissors/src/features/game/logic/services/services.dart';
 import 'package:rock_paper_scissors/src/features/splash/splash_screen.dart';
 import 'package:rock_paper_scissors/src/shared/shared.dart';
 import 'package:flutter/material.dart';
-
 import 'features/game/presentation/screens/screens.dart';
 import 'features/navigation/nav.dart';
 
@@ -16,7 +15,10 @@ class MyApp extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider(
-          create: (context) => GameBloc(service: GameService()),
+          create: (context) => GameBloc(service: GameService())
+            ..add(
+              SetGameType(isBonus: false),
+            ),
         ),
       ],
       child: MaterialApp(

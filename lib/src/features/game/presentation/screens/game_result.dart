@@ -17,51 +17,54 @@ class GameResult extends StatelessWidget {
 
     return BlocBuilder<GameBloc, GameState>(
       builder: (context, state) {
-        return FittedBox(
-          fit: isMobile ? BoxFit.none : BoxFit.contain,
-          child: Container(
-            constraints: BoxConstraints(
-              maxWidth: 800,
-              // maxHeight: 600,
-            ),
-            margin: EdgeInsets.only(top: /*!isMobile ? 50 :*/ 50),
-            child: Column(
-              children: [
-                Row(
-                  mainAxisAlignment: isMobile
-                      ? MainAxisAlignment.center
-                      : MainAxisAlignment.spaceBetween,
-                  children: [
-                    _buildPick(
-                      title: 'YOU PICKED',
-                      pick: state.yourPick,
-                      isMobile: isMobile,
-                    ),
-                    if (!isMobile)
-                      _buildWinOrLoss(
-                        result: state.result,
-                        onPlayAgain: playAgain,
-                      )
-                    else
-                      XBox(50),
-                    _buildPick(
-                      title: 'THE HOUSE PICKED',
-                      pick: state.housePick,
-                      isMobile: isMobile,
-                    ),
-                  ],
-                ),
-                if (isMobile) ...[
-                  YBox(40),
-                  _buildWinOrLoss(
-                    result: state.result,
-                    onPlayAgain: playAgain,
+        final content = Container(
+          constraints: BoxConstraints(
+            maxWidth: 800,
+            // maxHeight: 600,
+          ),
+          margin: EdgeInsets.only(top: !isMobile ? 50 : 0),
+          child: Column(
+            children: [
+              Row(
+                mainAxisAlignment: isMobile
+                    ? MainAxisAlignment.center
+                    : MainAxisAlignment.spaceBetween,
+                children: [
+                  _buildPick(
+                    title: 'YOU PICKED',
+                    pick: state.yourPick,
+                    isMobile: isMobile,
                   ),
-                ]
-              ],
-            ),
+                  if (!isMobile)
+                    _buildWinOrLoss(
+                      result: state.result,
+                      onPlayAgain: playAgain,
+                    )
+                  else
+                    XBox(50),
+                  _buildPick(
+                    title: 'THE HOUSE PICKED',
+                    pick: state.housePick,
+                    isMobile: isMobile,
+                  ),
+                ],
+              ),
+              if (isMobile) ...[
+                YBox(40),
+                _buildWinOrLoss(
+                  result: state.result,
+                  onPlayAgain: playAgain,
+                ),
+              ]
+            ],
           ),
         );
+        return isMobile
+            ? content
+            : FittedBox(
+                fit: BoxFit.contain,
+                child: content,
+              );
       },
     );
   }
