@@ -1,0 +1,34 @@
+name: Run Tests
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          flutter-version: "3.24.4"
+
+      - name: Clear Flutter cache
+        run: flutter clean
+        working-directory: client
+
+      - name: Install dependencies
+        run: flutter pub get
+        working-directory: client
+
+      - name: Run tests
+        run: flutter test
+        working-directory: client
