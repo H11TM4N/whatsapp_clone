@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
         BlocProvider(
           create: (context) => GameBloc(service: GameService())
             ..add(
-              SetGameType(isBonus: false),
+              SetGameType(isBonus: true),
             ),
         ),
       ],

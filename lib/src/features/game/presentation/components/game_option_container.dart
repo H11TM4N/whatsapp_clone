@@ -4,12 +4,12 @@ import 'package:rock_paper_scissors/src/shared/shared.dart';
 
 class GameOptionContainer extends HookWidget {
   final String icon;
-  final double size;
+  final double? size;
   final VoidCallback onTap;
   const GameOptionContainer({
     super.key,
     required this.icon,
-    this.size = 200,
+    this.size,
     required this.onTap,
   });
 
@@ -27,7 +27,7 @@ class GameOptionContainer extends HookWidget {
             ),
           )
         : Container(
-            padding: EdgeInsets.all(20),
+            padding: EdgeInsets.all(15),
             decoration: BoxDecoration(
               shape: BoxShape.circle,
               color: isHovering.value
@@ -42,8 +42,8 @@ class GameOptionContainer extends HookWidget {
                 onExit: (_) => isHovering.value = false,
                 child: SvgAsset(
                   path: icon,
-                  // height: size,
-                  // width: size,
+                  height: size,
+                  width: size,
                 ),
               ),
             ),

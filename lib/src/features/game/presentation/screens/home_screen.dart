@@ -25,7 +25,7 @@ class HomeScreen extends StatelessWidget {
               children: [
                 ScoreBoard(
                   score: state.score,
-                  isBonus: false,
+                  isBonus: state.isBonusGame,
                 ),
                 YBox(20),
                 if (state.playedRound) GameResult() else SelectOptionState(),

@@ -3,6 +3,7 @@ const String basePngPath = 'assets/pngs/';
 
 
 final String bgPentagon = 'bg-pentagon'.svg;
+final String pentagon = 'pentagon'.svg;
 final String bgTriangle = 'bg-triangle'.svg;
 final String iconClose = 'icon-close'.svg;
 final String iconLizard = 'icon-lizard'.svg;
