@@ -44,12 +44,12 @@ class GameBloc extends Bloc<GameEvent, GameState> {
       state.copyWith(
         result: state.isBonusGame
             ? service.determineBonusGameResult(
-                yourPick: pathToName(state.yourPick) ?? '__',
-                housePick: pathToName(state.housePick) ?? '__',
+                yourPick: pathToName(state.yourPick),
+                housePick: pathToName(state.housePick),
               )
             : service.determineGameResult(
-                yourPick: pathToName(state.yourPick) ?? '__',
-                housePick: pathToName(state.housePick) ?? '__',
+                yourPick: pathToName(state.yourPick),
+                housePick: pathToName(state.housePick),
               ),
       ),
     );

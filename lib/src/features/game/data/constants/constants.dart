@@ -28,11 +28,11 @@ Map<String, String> _pickToPath = {
   SPOCK: spockTile,
 };
 
-String? nameToPath(String name) {
-  return _pickToPath[name];
+String nameToPath(String name) {
+  return _pickToPath[name] ?? '';
 }
 
-String? pathToName(String path) {
+String pathToName(String path) {
   return _pickToPath.entries
       .firstWhere(
         (entry) => entry.value == path,

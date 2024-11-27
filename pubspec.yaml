@@ -24,6 +24,7 @@ dev_dependencies:
 
   flutter_lints: ^5.0.0
   flutter_launcher_icons: ^0.14.1
+  bloc_test: ^9.1.7
 
 flutter_launcher_icons:
   android: "launcher_icon"
